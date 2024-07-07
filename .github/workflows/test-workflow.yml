@@ -22,14 +22,14 @@ on:
         required: true
   
 jobs:
-  Get-Environment-Variables:
+  log-the-inputs:
     runs-on: ubuntu-latest
     steps:
-    - name: Read environment variables
-      run: |
-        echo "GITHUB_EVENT_NAME: ${{ github.event_name }}"
-        echo "GITHUB_SHA: ${{ github.sha }}"
-        echo "GITHUB_REF: ${{ github.ref }}"
-        echo "GITHUB_REF_NAME: ${{ github.ref_name }}"
-        echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
-        echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
+          ENVIRONMENT: ${{ inputs.environment }}
