@@ -8,3 +8,5 @@ jobs:
     steps:
       - name: List all EVs
         run: printenv
+      - name: Access event name
+        run: ${{ GITHUB_EVENT_NAME }}
