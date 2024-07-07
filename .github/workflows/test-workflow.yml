@@ -1,6 +1,7 @@
 name: GitHub Actions Events Demo
 run-name: GitHub Actions Events
 on: 
+  push:
   pull_request:
     types: [opened, reopened, closed]
   
