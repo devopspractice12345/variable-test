@@ -1,14 +1,15 @@
 name: GitHub Actions Demo
 run-name: GitHub Actions EV demo 🚀
 on: [push]
-
+env:
+  API_KEY: "12345@workflow_level"
 jobs:
-  Explore-GitHub-Actions-EV:
+  Run-python-script:
     runs-on: ubuntu-latest
     steps:
-      - name: List all EVs
-        run: printenv
-      - name: Access event name
-        run: |
-          echo "The event that triggered this workflow ${{ github.event_name }}"
-          echo "Name of the branch ${{ github.ref_name }}"
+      - name: check out repo code
+        uses: actions/checkout@v4
+      - name: get python version
+        run: python --version
+      - name: Run script
+        run: python test.py
