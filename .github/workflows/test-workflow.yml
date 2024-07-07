@@ -2,6 +2,7 @@ name: GitHub Actions Events Demo
 run-name: GitHub Actions Events
 on: 
   pull_request:
+    types: [opened, reopened, closed]
   
 jobs:
   Get-Environment-Variables:
