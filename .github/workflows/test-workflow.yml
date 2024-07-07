@@ -16,3 +16,12 @@ jobs:
         echo "GITHUB_REF_NAME: ${{ github.ref_name }}"
         echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
         echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
+  Print-PR-Info:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Read PR related environment variables
+      if: ${{ github.event_name == 'pull_request'  && github.event.action == 'opened' }}
+      run: |
+        echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
+        echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
+        
