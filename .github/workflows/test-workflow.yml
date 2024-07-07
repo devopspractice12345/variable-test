@@ -1,6 +1,11 @@
 name: GitHub Actions Events Demo
 run-name: GitHub Actions Events
-on: [push]
+on: 
+  push:
+    branches:
+      - 'main'
+      - 'releases/**'
+
 jobs:
   Get-Environment-Variables:
     runs-on: ubuntu-latest
