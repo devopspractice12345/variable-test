@@ -9,4 +9,6 @@ jobs:
       - name: List all EVs
         run: printenv
       - name: Access event name
-        run: echo "The event that triggered this workflow ${{ github.event_name }}"
+        run: |
+          echo "The event that triggered this workflow ${{ github.event_name }}"
+          echo "Name of the branch ${{ github.ref_name }}"
