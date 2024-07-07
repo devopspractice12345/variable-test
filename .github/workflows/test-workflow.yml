@@ -2,7 +2,7 @@ name: GitHub Actions Demo
 run-name: GitHub Actions EV demo 🚀
 on: [push]
 env:
-  API_KEY: "12345@workflow_level"
+  API_KEY: ${{ vars.API_KEY }}
 jobs:
   Run-python-script:
     runs-on: ubuntu-latest
