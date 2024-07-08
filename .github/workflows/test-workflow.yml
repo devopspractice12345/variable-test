@@ -2,7 +2,16 @@ name: GitHub Actions Demo
 run-name: "Run number: ${{ github.run_number }} triggered by ${{ github.event_name }} event"
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  job-1:
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+  job-2:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
