@@ -12,4 +12,4 @@ jobs:
       - name: check java and maen versions
         run: | 
           java -version
-          mvn --verions
+          mvn --version
