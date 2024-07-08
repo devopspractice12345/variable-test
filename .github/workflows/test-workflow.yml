@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: GitHub Actions Demo 2
 run-name: "Run number: ${{ github.run_number }} triggered by ${{ github.event_name }} event"
 on: [push]
 jobs:
