@@ -1,20 +1,12 @@
-name: GitHub Actions Events Demo
-run-name: GitHub Actions Events
-on:
-  repository_dispatch:
-    types: [test_result]
+name: GitHub Actions Demo
+run-name: "Run number: ${{ github.run_number }} triggered by ${{ github.event_name }} event"
+on: [push]
 jobs:
-  Get-Environment-Variables:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-    - name: Read environment variables
-      run: |
-        echo "GITHUB_EVENT_NAME: ${{ github.event_name }}"
-        echo "GITHUB_SHA: ${{ github.sha }}
-        echo "GITHUB"GITHUB_REF: ${{ github.ref }}"
-        echo "GITHUB_REF_NAME: ${{ github.ref_name }}"
-    - name: Parsing client payload message
-      run: |
-        echo $MESSAGE
-      env:
-        MESSAGE: ${{ github.event.client_payload.message }}
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
