@@ -9,6 +9,13 @@ jobs:
         uses: actions/checkout@v4.1.7
         with:
           repository: kunchalavikram1427/actions_demo
+      - name: check the workspace
+        run: ls -la ${{ github.workspace }}
+      - name: Install Java 8
+        uses: actions/setuo-java@v4
+        with:
+            distribution: 'temurin'
+            java-version: '21'
       - name: check java and maen versions
         run: | 
           java -version
